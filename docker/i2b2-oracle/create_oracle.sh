@@ -83,7 +83,11 @@ cat "$root/docker/i2b2-oracle/db.properties"  | sed "s/localhost/$docker_network
 ant -f data_build.xml create_workdata_tables_release_1-8
 ant -f data_build.xml db_workdata_load_data
 
-
+cd $root
+df -h
+rm -rf .git
+rm -rf edu.harvard.i2b2.data
+df -h
 docker commit oracle23 local/oracle23:latest 
 
 docker ps 
