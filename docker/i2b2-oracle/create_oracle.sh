@@ -7,7 +7,7 @@ docker run -d \
   --name oracle23 \
   -p 1521:1521 \
   -e ORACLE_PWD=MyStrongPass123 \
-  -v ../../:/i2b2 \
+  -v home/runner/work/i2b2-data/i2b2-data/:/i2b2 \
   --network i2b2-net \
   container-registry.oracle.com/database/free:latest
 
