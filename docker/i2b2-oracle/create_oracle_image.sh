@@ -1,6 +1,7 @@
 # docker rm -f oracle23
 
 # docker network remove i2b2-net
+I2B2_DATA_ORACLE_TAG=$1
 docker  network create i2b2-net
 
 docker run -d \
@@ -88,6 +89,10 @@ df -h
 rm -rf .git
 rm -rf edu.harvard.i2b2.data
 df -h
-docker commit oracle23 local/oracle23:latest 
+docker commit oracle23 $I2B2_DATA_ORACLE_TAG 
+
+
+docker commit oracle23 $docker_username/$docker_reponame:i2b2-data-oracle_$I2B2_DATA_ORACLE_TAG
+docker push $docker_username/$docker_reponame:i2b2-data-oracle_$I2B2_DATA_ORACLE_TAG
 
 docker ps 
